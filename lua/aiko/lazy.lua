@@ -105,6 +105,9 @@ require("lazy").setup({
         crates.show()
     end
 },
+{
+    "neovim/nvim-lspconfig"
+},
 
 })
 
