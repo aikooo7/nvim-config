@@ -106,10 +106,69 @@ require("lazy").setup({
     end
 },
 {
-    "neovim/nvim-lspconfig"
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+        -- Using default.
+    }
 },
+{
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+    "ray-x/guihua.lua",
+    "neovim/nvim-lspconfig",
+    -- Debugging dependencies
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    "theHamsta/nvim-dap-virtual-text"
+},
+config = function()
+    require("go").setup()
+end,
+event = {"CmdlineEnter"},
+ft = {"go", 'gomod'},
+build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+},
+{
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+        -- Using default.
+    },
+},
+{
+    "rcarriga/nvim-notify",
+    config = function()
+        require("notify").setup({
+            background_colour = "#000000",
+        })
+    end
+},
+{
+    "folke/noice.nvim",
+    config = function()
+        require("noice").setup({
+            -- add any options here
+            -- routes = {
+                --   {
+                    --     view = "notify",
+                    --     filter = { event = "msg_showmode" },
+                    --   },
+                    -- },
+                })
+            end,
+            dependencies = {
+                -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+                "MunifTanjim/nui.nvim",
+                -- OPTIONAL:
+                --   `nvim-notify` is only needed, if you want to use the notification view.
+                --   If not available, we use `mini` as the fallback
+                "rcarriga/nvim-notify"
 
-})
+            }
+        },
 
-vim.cmd("let g:airline_theme= 'gruvbox'")
-vim.cmd('colorscheme gruvbox')
+    })
+
+    vim.cmd("let g:airline_theme= 'gruvbox'")
+    vim.cmd('colorscheme gruvbox')
