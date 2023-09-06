@@ -18,22 +18,46 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
-        'vim-airline/vim-airline',
-        'vim-airline/vim-airline-themes'
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require('lualine').setup {
+            options = {
+                icons_enabled = true,
+                component_separators = '|',
+                section_separators = '',
+            },
+            sections = {
+                lualine_x = {
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                        color = { fg = "#ff9e64" },
+                    }
+                },
+                lualine_a = {
+                    {
+                        'buffers',
+                    }
+                }
+            }
+      }
+  end
     },
     {
         'morhetz/gruvbox',
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate" 
+        run = ":TSUpdate"
 
     },
     {
         "mbbill/undotree"
     },
     {
-        "tpope/vim-fugitive"
+        -- Git related plugins
+        'tpope/vim-fugitive',
+        'lewis6991/gitsigns.nvim'
     },
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -64,49 +88,96 @@ require("lazy").setup({
         }
 
     },
-    {'romgrk/barbar.nvim',
-    dependencies = {
-        'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-        'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-        -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-        -- animation = true,
-        -- insert_at_start = true,
-        -- …etc.
-    },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
-},
-{
-    "m4xshen/autoclose.nvim",
+    {
+        "m4xshen/autoclose.nvim",
 
-    init = function()
-        require("autoclose").setup()
+        init = function()
+            require("autoclose").setup()
+        end,
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false
+    },
+    {
+        "rust-lang/rust.vim",
+        ft = "rust",
+        init = function()
+            vim.g.rustfmt_autosave = 1
+        end
+    },
+    {
+        "Saecki/crates.nvim",
+        ft = {"rust", "toml"},
+        config = function(_, opts)
+            local crates = require('crates')
+            crates.setup(opts)
+            crates.show()
+        end
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            -- Using default.
+        }
+    },
+    {
+        "ray-x/go.nvim",
+        dependencies = {  -- optional packages
+        "ray-x/guihua.lua",
+        "neovim/nvim-lspconfig",
+        -- Debugging dependencies
+        "mfussenegger/nvim-dap",
+        "rcarriga/nvim-dap-ui",
+        "theHamsta/nvim-dap-virtual-text"
+    },
+    config = function()
+        require("go").setup()
     end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
 },
 {
-    "christoomey/vim-tmux-navigator",
-    lazy = false
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+        -- Using default.
+    },
 },
 {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-        vim.g.rustfmt_autosave = 1
+    "rcarriga/nvim-notify",
+    config = function()
+        require("notify").setup({
+            background_colour = "#000000",
+        })
     end
 },
 {
-    "Saecki/crates.nvim",
-    ft = {"rust", "toml"},
-    config = function(_, opts)
-        local crates = require('crates')
-        crates.setup(opts)
-        crates.show()
-    end
-},
+    "folke/noice.nvim",
+    config = function()
+        require("noice").setup({
+            -- add any options here
+            -- routes = {
+                --   {
+                    --     view = "notify",
+                    --     filter = { event = "msg_showmode" },
+                    --   },
+                    -- },
+                })
+            end,
+            dependencies = {
+                -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+                "MunifTanjim/nui.nvim",
+                -- OPTIONAL:
+                --   `nvim-notify` is only needed, if you want to use the notification view.
+                --   If not available, we use `mini` as the fallback
+                "rcarriga/nvim-notify"
 
-})
+            }
+        },
 
-vim.cmd("let g:airline_theme= 'gruvbox'")
-vim.cmd('colorscheme gruvbox')
+    })
+
+    vim.cmd('colorscheme gruvbox')
