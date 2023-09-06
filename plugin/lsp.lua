@@ -19,10 +19,6 @@ lsp.set_preferences({
     }
 })
 
-require('lspconfig').luau_lsp.setup({
-    root_dir = require('lspconfig.util').root_pattern('.git'),
-    filetypes = {'luau'}
-})
 
 lsp.setup()
 
