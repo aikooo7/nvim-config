@@ -26,14 +26,16 @@ require("lazy").setup({
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate" 
+        run = ":TSUpdate"
 
     },
     {
         "mbbill/undotree"
     },
     {
-        "tpope/vim-fugitive"
+        -- Git related plugins
+        'tpope/vim-fugitive',
+        'lewis6991/gitsigns.nvim'
     },
     {
         'VonHeikemen/lsp-zero.nvim',
