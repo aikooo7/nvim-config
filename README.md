@@ -1,14 +1,12 @@
-My neovim dotfiles dev branch
+My neovim dotfiles.
 ==============
 
-Disclaimer
---------------
-
-This is my dev branch and it is where my code will be until it's stable.
-
-That doesn't mean if you do a pull request that will not accept, it only means that I will only accept it if I fell like I need it.
+Hi, This is my neovim config. I hope you enjoy it!
+# Disclaimer
 
 **PULL REQUESTS WILL ONLY BE ACCEPTED TO THE DEV BRANCH.**
+
+That doesn't mean if you do a pull request that will not accept, it only means that I will only accept it if I fell like I need it.
 
 
 Enjoy it anyways.
