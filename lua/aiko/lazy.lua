@@ -195,7 +195,10 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
+},
+{
+    "https://github.com/jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy"
 }
-
 })
     vim.cmd('colorscheme gruvbox')
