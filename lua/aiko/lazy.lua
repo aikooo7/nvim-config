@@ -204,7 +204,10 @@ require("lazy").setup({
 },
 {
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
+    -- Formatting
+    'MunifTanjim/prettier.nvim'
+
 },
 {
     'numToStr/Comment.nvim',
