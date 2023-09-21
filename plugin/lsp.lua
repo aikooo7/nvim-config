@@ -19,6 +19,17 @@ lsp.set_preferences({
     }
 })
 
+-- Fix Undefined global 'vim'
+lsp.configure('lua-language-server', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
 
 require('lspconfig').tsserver.setup {
     init_options = {
