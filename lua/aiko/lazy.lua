@@ -199,6 +199,16 @@ require("lazy").setup({
 {
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy"
+},
+{
+    'numToStr/Comment.nvim',
+    opts = {
+        -- [
+        -- Option should go here
+        -- (Optional)
+        -- ]    
+},
+    lazy = false,
 }
 })
     vim.cmd('colorscheme gruvbox')
