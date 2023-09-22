@@ -218,6 +218,8 @@ require("lazy").setup({
         -- ]    
 },
     lazy = false,
+},
+{
+  "ThePrimeagen/vim-be-good"
 }
 })
-    vim.cmd('colorscheme gruvbox')
