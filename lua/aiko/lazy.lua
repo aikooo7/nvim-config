@@ -193,25 +193,6 @@ require("lazy").setup({
             }
 },
 {
-  "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup({
-          -- [
-          -- You need to set the env variable OPENAPI_API_KEY.
-          -- Aso in the async_api_keycmd you need to put how it will be 
-          -- extracted, I'm using pass-store.
-          -- NOTE: you can also use api_key_cmd but the async version is faster.
-          -- ]
-          async_api_key_cmd = "pass show api/tokens/openai"
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-},
-{
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
     -- Formatting
