@@ -36,5 +36,5 @@ vim.opt.colorcolumn = "80"
 --  which is helpful when using a fuzzy finder and you want your tree file 
 --  plugin to be in sync with it.
 -- to be "in sync" with it
+-- vim.cmd('set autochdir')
 -- ]
-vim.cmd('set autochdir')
