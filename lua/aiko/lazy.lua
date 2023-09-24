@@ -81,8 +81,14 @@ require("lazy").setup({
 
 		  -- Snippets
 		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},}
-    },
+		  {'rafamadriz/friendly-snippets'},
+
+      -- Rust Support
+      {'simrat39/rust-tools.nvim'},
+
+      -- Debugging
+      {'mfussenegger/nvim-dap'},
+    }},
     {
         {
             "nvim-tree/nvim-tree.lua",
