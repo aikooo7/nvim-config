@@ -36,8 +36,21 @@ lspconfig.ocamllsp.setup({
     root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
 })
 
-lspconfig.rust_analyzer.setup{
-}
+-- Rust fmt.
+
+local rust = require("rust-tools")
+
+rust.setup({
+  tools = {
+    runnables = {
+      use_telescope = true,
+    },
+    autoSetFT = true,
+    cargo = {
+      allFeatures = true,
+    }
+  }
+})
 
 lsp.set_preferences({
     sign_icons = {
