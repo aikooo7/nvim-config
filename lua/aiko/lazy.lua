@@ -90,20 +90,6 @@ require("lazy").setup({
       {'mfussenegger/nvim-dap'},
     }},
     {
-        {
-            "nvim-tree/nvim-tree.lua",
-            version = "*",
-            lazy = false,
-            dependencies = {
-                "nvim-tree/nvim-web-devicons",
-            },
-            config = function()
-                require("nvim-tree").setup {}
-            end,
-        }
-
-    },
-    {
         "m4xshen/autoclose.nvim",
 
         init = function()
