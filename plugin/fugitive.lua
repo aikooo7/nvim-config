@@ -8,10 +8,7 @@ vim.keymap.set("n", "<leader>p", function()
 end, opts)
 
 -- rebase always
-vim.keymap.set("n", "<leader>P", function()
-  vim.cmd.Git({'pull',  '--rebase'})
-end, opts)
-
+vim.keymap.set("n", "<leader>P", ":Git push --rebase")
 
 -- Git push -u is very usefull
 vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
