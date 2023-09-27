@@ -1,9 +1,6 @@
-My neovim dotfiles dev branch
+My neovim dotfiles.
 ==============
 
-Disclaimer
---------------
+Hi, This is my neovim config. I hope you enjoy it!
 
-This is my dev branch and it is where my code will be until it's stable.
-
-**Pull request will be only approved here.**
+# Have fun!
