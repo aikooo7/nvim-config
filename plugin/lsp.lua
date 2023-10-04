@@ -17,6 +17,10 @@ lsp.ensure_installed({
     'tsserver',
 })
 
+lsp.skip_server_setup({'jdtls'})
+
+lspconfig.kotlin_language_server.setup{}
+
 -- Fix Undefined global 'vim'
 -- lsp.configure('lua-language-server', {
 --     settings = {
