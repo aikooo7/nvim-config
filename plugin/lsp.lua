@@ -40,6 +40,7 @@ lspconfig.ocamllsp.setup({
     root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
 })
 
+lspconfig.zls.setup{}
 -- Rust fmt.
 
 local rust = require("rust-tools")
