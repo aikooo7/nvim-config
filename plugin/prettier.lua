@@ -6,4 +6,16 @@ prettier.setup({
   tab_width = 2,
   single_quote = true,
   semi = true,
+    filetypes = {
+    "css",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
 })
