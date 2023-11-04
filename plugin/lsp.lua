@@ -1,5 +1,5 @@
 local lsp = require("lsp-zero")
-local lspconfig = require("lspconfig")
+local lspconfig = require("mason-lspconfig")
 
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
@@ -11,15 +11,25 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 end)
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-    'tsserver',
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {'tsserver', 'rust_analyzer'},
+  handlers = {
+    lsp.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
 })
+
+lsp.preset("recommended")
 
 lsp.skip_server_setup({'jdtls'})
 
-lspconfig.kotlin_language_server.setup{}
+-- lspconfig.kotlin_language_server.setup{}
+
+-- lspconfig.svelte.setup{}
 
 -- Fix Undefined global 'vim'
 -- lsp.configure('lua-language-server', {
@@ -34,13 +44,13 @@ lspconfig.kotlin_language_server.setup{}
 
 -- Ocaml stuff
 
-lspconfig.ocamllsp.setup({
-    cmd = { "ocamllsp" },
-    filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
-    root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
-})
-
-lspconfig.zls.setup{}
+-- lspconfig.ocamllsp.setup({
+--     cmd = { "ocamllsp" },
+--     filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+--     root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
+-- })
+--
+-- lspconfig.zls.setup{}
 -- Rust fmt.
 
 local rust = require("rust-tools")
@@ -51,8 +61,18 @@ rust.setup({
       use_telescope = true,
     },
     autoSetFT = true,
-    cargo = {
-      allFeatures = true,
+    server = {
+      settings = {
+        ['rust-analyzer'] = {
+          cargo = {
+            allFeatures = true,
+          },
+          checkOnSave = {
+            enable = true,
+            overrideCommand = { "clippy" }
+          },
+        }
+      }
     }
   }
 })
