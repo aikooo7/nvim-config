@@ -179,6 +179,11 @@ require("lazy").setup({
             }
 },
 {
+    -- Formatting
+    'MunifTanjim/prettier.nvim'
+
+},
+{
     'numToStr/Comment.nvim',
     opts = {
         -- [
