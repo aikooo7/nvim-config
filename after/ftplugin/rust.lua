@@ -1,23 +1,20 @@
-local rust = require("rust-tools")
-
-rust.setup({
+local opts = {
   tools = {
     runnables = {
       use_telescope = true,
     },
-    autoSetFT = true,
-    server = {
-      settings = {
-        ['rust-analyzer'] = {
-          cargo = {
-            allFeatures = true,
-          },
-          checkOnSave = {
-            enable = true,
-            overrideCommand = { "clippy" }
-          },
-        }
-      }
-    }
-  }
-})
+  },
+  server = {
+    standalone = false,
+    settings = {
+      ["rust-analyzer"] = {
+        -- enable clippy on save
+        checkOnSave = {
+          command = "clippy",
+        },
+      },
+    },
+  },
+}
+
+require("rust-tools").setup(opts)
