@@ -13,7 +13,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer'},
+  ensure_installed = {'tsserver', },
   handlers = {
     lsp.default_setup,
     lua_ls = function()
@@ -52,7 +52,6 @@ lsp.skip_server_setup({'jdtls'})
 --
 -- lspconfig.zls.setup{}
 -- Rust fmt.
-
 
 lsp.set_preferences({
     sign_icons = {
