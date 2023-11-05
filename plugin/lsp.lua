@@ -1,6 +1,6 @@
 local lsp = require("lsp-zero")
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opbs)
