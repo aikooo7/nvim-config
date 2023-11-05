@@ -1,5 +1,4 @@
 local lsp = require("lsp-zero")
-local lspconfig = require("mason-lspconfig")
 
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
