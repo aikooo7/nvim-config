@@ -198,5 +198,11 @@ require("lazy").setup({
 },
 {
   "ThePrimeagen/git-worktree.nvim"
+},
+-- Better intelisense for plugin development with neovim
+{
+  "folke/neodev.nvim",
+  opts = {}
+},
 }
 })
