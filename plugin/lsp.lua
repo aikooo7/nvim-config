@@ -1,18 +1,18 @@
 local lsp = require("lsp-zero")
 
 lsp.on_attach(function(_, bufnr)
-    local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', },
+  ensure_installed = { 'tsserver', },
   handlers = {
     lsp.default_setup,
     lua_ls = function()
@@ -22,9 +22,10 @@ require('mason-lspconfig').setup({
   }
 })
 
+
 lsp.preset("recommended")
 
-lsp.skip_server_setup({'jdtls'})
+lsp.skip_server_setup({ 'jdtls' })
 
 -- lspconfig.kotlin_language_server.setup{}
 
@@ -53,20 +54,20 @@ lsp.skip_server_setup({'jdtls'})
 -- Rust fmt.
 
 lsp.set_preferences({
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+  }
 })
 
 require('lspconfig').tsserver.setup {
-    init_options = {
-        preferences = {
-            disableSuggestions = true,
-        }
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
     }
+  }
 }
 
 -- Keybinds
@@ -76,7 +77,9 @@ lsp.setup()
 local cmp = require('cmp')
 
 cmp.setup({
-    mapping = {
-        ["<CR>"] = cmp.mapping.confirm({select = true})
-    }
+  mapping = {
+    ["<CR>"] = cmp.mapping.confirm({ select = true })
+  }
 })
+
+vim.diagnostic.config({ virtual_text = false })
