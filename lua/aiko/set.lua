@@ -30,13 +30,8 @@ vim.opt.colorcolumn = "80"
 
 -- [
 -- Neovim will automatically navigate to the folder of the selected file,
---  which is helpful when using a fuzzy finder and you want your tree file 
+--  which is helpful when using a fuzzy finder and you want your tree file
 --  plugin to be in sync with it.
 -- to be "in sync" with it
 -- vim.cmd('set autochdir')
 -- ]
-
--- Makes netrw beatifull
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
