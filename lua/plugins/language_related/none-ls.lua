@@ -1,5 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
+  event = { "BufEnter", "BufWritePost" },
   opts = function()
     local augroup = vim.api.nvim_create_augroup("none-ls", {})
     local null_ls = require("null-ls")
