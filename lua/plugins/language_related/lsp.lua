@@ -65,6 +65,11 @@ return {
 				end,
 			},
 		},
+		{
+			"folke/neodev.nvim",
+			event = { "BufEnter" },
+			opts = {},
+		},
 		config = function(_, opts)
 			local servers = opts.servers
 			local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
