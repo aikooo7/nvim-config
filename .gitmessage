@@ -1,0 +1,19 @@
+# <type>:(<ref number>)  (If applied, this commit will...) <short summary> 
+#   |           |                       |                         |
+#   |           |                       |                          +-> Summary in present tense
+#   |           |                       +-> Helps writting the short summary but don't include it 
+#   |           +-> Refers to story/card/issue #
+#   +-> Type: feat|bug|chore|fix|refactor|style|test
+
+# Body (More detailed explanation)
+
+# Don't forget to follow the 7 commit rules:
+#    Capitalize the subject line
+#    Use the imperative mood in the subject line
+#    Do not end the subject line with a period
+#    Separate subject from body with a blank line
+#    Use the body to explain what and why vs. how
+#    Wrap the body at 72 characters
+#    Do not end the subject line with a period
+#    Separate subject from body with a blank line
+# --------------------
