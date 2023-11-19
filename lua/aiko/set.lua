@@ -28,6 +28,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.loader.enable()
+
 -- [
 -- Neovim will automatically navigate to the folder of the selected file,
 --  which is helpful when using a fuzzy finder and you want your tree file

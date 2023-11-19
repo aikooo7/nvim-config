@@ -56,6 +56,7 @@ return {
 			},
 		},
 		dependencies = {
+			{ "folke/neodev.nvim" },
 			{ "hrsh7th/cmp-nvim-lsp", opts = {} },
 			{ "williamboman/mason-lspconfig.nvim" },
 			{
@@ -64,11 +65,6 @@ return {
 					require("mason").setup(opts)
 				end,
 			},
-		},
-		{
-			"folke/neodev.nvim",
-			event = { "BufEnter" },
-			opts = {},
 		},
 		config = function(_, opts)
 			local servers = opts.servers
@@ -137,7 +133,7 @@ return {
 				},
 				mapping = {
 					-- confirm selection
-					["<C-r>"] = cmp.mapping.confirm({ select = false }),
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
 
 					-- cancel completion
 					["<C-e>"] = cmp.mapping.abort(),
@@ -148,7 +144,7 @@ return {
 
 					-- if completion menu is visible, go to the previous item
 					-- else, trigger completion menu
-					["<C-p>"] = cmp.mapping(function()
+					["<S-Tab>"] = cmp.mapping(function()
 						if cmp.visible() then
 							cmp.select_prev_item({ behavior = "insert" })
 						else
@@ -158,7 +154,7 @@ return {
 
 					-- if completion menu is visible, go to the next item
 					-- else, trigger completion menu
-					["<C-n>"] = cmp.mapping(function()
+					["<Tab>"] = cmp.mapping(function()
 						if cmp.visible() then
 							cmp.select_next_item({ behavior = "insert" })
 						else

@@ -29,7 +29,7 @@ require("lazy").setup({
 		config = function()
 			require("lualine").setup({
 				options = {
-          theme = auto,
+					theme = auto,
 					icons_enabled = true,
 					component_separators = "|",
 					section_separators = "",
@@ -128,46 +128,45 @@ require("lazy").setup({
 		end,
 	},
 	-- {
-		--     "folke/noice.nvim",
-		--     config = function()
-		--         require("noice").setup({
-		--             -- add any options here
-		--             -- routes = {
-		--                 --   {
-		--                     --     view = "notify",
-		--                     --     filter = { event = "msg_showmode" },
-		--                     --   },
-		--                     -- },
-		--                 })
-		--             end,
-		--             dependencies = {
-		--                 -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-		--                 "MunifTanjim/nui.nvim",
-		--                 -- OPTIONAL:
-		--                 --   `nvim-notify` is only needed, if you want to use the notification view.
-		--                 --   If not available, we use `mini` as the fallback
-		--                 "rcarriga/nvim-notify"
-		--
-		--             }
-		-- },
-		-- {
-			-- Formatting
-			-- 'MunifTanjim/prettier.nvim'
-		-- },
-		{
-			"numToStr/Comment.nvim",
-			opts = {
-				-- [
-				-- Option should go here
-				-- (Optional)
-				-- ]
-			},
-			lazy = false,
+	--     "folke/noice.nvim",
+	--     config = function()
+	--         require("noice").setup({
+	--             -- add any options here
+	--             -- routes = {
+	--                 --   {
+	--                     --     view = "notify",
+	--                     --     filter = { event = "msg_showmode" },
+	--                     --   },
+	--                     -- },
+	--                 })
+	--             end,
+	--             dependencies = {
+	--                 -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+	--                 "MunifTanjim/nui.nvim",
+	--                 -- OPTIONAL:
+	--                 --   `nvim-notify` is only needed, if you want to use the notification view.
+	--                 --   If not available, we use `mini` as the fallback
+	--                 "rcarriga/nvim-notify"
+	--
+	--             }
+	-- },
+	-- {
+	-- Formatting
+	-- 'MunifTanjim/prettier.nvim'
+	-- },
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- [
+			-- Option should go here
+			-- (Optional)
+			-- ]
 		},
-		{
-			"ThePrimeagen/vim-be-good",
-		},
-		{
-			"ThePrimeagen/git-worktree.nvim",
-		},
+	},
+	{
+		"ThePrimeagen/vim-be-good",
+	},
+	{
+		"ThePrimeagen/git-worktree.nvim",
+	},
 })
