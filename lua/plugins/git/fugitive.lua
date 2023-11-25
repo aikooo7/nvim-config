@@ -10,7 +10,7 @@ return {
 		-- rebase always
 		{ "<leader>P", "<cmd>Git push --rebase<cr>" },
 
-		-- Git push -u is very usefull
+		-- Git push -u is very useful
 		{ "<leader>t", "<cmd>Git push -u origin<cr>" },
 
 		-- Horizontal and vertical git splitting
