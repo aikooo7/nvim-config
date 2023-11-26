@@ -12,9 +12,3 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<Tab>", vim.cmd.bnext)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "<leader>x", vim.cmd.bd)
-
--- Keybinds for trouble
-
-local trouble = require("trouble")
-
-vim.keymap.set("n", "<leader>ef", trouble.toggle)
