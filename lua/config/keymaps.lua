@@ -13,3 +13,17 @@ vim.keymap.set("n", "<Tab>", vim.cmd.bnext)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "<leader>x", vim.cmd.bd)
 
+-- Telescope keybinds
+
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files <cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>nf", "<cmd>TodoTelescope<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ps", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files <cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>nf", "<cmd>TodoTelescope<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ps", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>vh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>vh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true })
+
