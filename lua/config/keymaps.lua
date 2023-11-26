@@ -27,3 +27,8 @@ vim.api.nvim_set_keymap("n", "<leader>ps", "<cmd>Telescope live_grep<cr>", { nor
 vim.api.nvim_set_keymap("n", "<leader>vh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>vh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true })
 
+-- Keybinds for trouble
+
+local trouble = require("trouble")
+
+vim.keymap.set("n", "<leader>ef", trouble.toggle)
