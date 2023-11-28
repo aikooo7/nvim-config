@@ -1,6 +1,5 @@
 return {
 	"ThePrimeagen/git-worktree.nvim",
-	event = "VeryLazy",
 	keys = {
 		{
 			"<leader>wk",

@@ -1,6 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
-	event = { "BufEnter", "BufWritePost" },
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 	keys = {
 		{
 			"<leader>ca",

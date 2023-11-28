@@ -25,7 +25,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		cmd = "LspInfo",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		opts = {
 			servers = {
 				lua_ls = {

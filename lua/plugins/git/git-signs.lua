@@ -1,6 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	event = { "BufEnter" },
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 	opts = {
 		signs = {
 			add = { text = "+" },
