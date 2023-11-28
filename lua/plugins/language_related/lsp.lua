@@ -130,6 +130,7 @@ return {
 			local cmp_config = {
 				sources = {
 					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
 				},
 				mapping = {
 					-- confirm selection
