@@ -23,7 +23,6 @@ require("lazy").setup({
 	{ import = "plugins.git" },
 	change_detection = { enabled = false },
 
-	{ dir = "~/Projects/nvim_plugins/funnyfiles.nvim" },
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
