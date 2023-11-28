@@ -197,5 +197,5 @@ return {
 	ft = "rust",
 
 	-- Debugging
-	{ "mfussenegger/nvim-dap" },
+	-- { "mfussenegger/nvim-dap" },
 }
