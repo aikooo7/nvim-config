@@ -118,7 +118,23 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
+			{
+				"L3MON4D3/LuaSnip",
+				version = "v2.*",
+				-- install jsregexp (optional!).
+				build = "make install_jsregexp",
+				dependencies = {
+					"rafamadriz/friendly-snippets",
+					config = function()
+						require("luasnip.loaders.from_vscode").lazy_load()
+						require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snippets/" } })
+					end,
+				},
+				opts = {
+					history = true,
+					delete_check_events = "TextChanged",
+				},
+			},
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "saadparwaiz1/cmp_luasnip" },
