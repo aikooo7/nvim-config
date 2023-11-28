@@ -19,6 +19,8 @@ return {
 					disabled_filetypes = { "lua" },
 				}),
 				null_ls.builtins.diagnostics.eslint_d,
+				null_ls.builtins.diagnostics.typos,
+				null_ls.builtins.diagnostics.write_good,
 				null_ls.builtins.code_actions.gitsigns,
 			},
 			on_attach = function(client, bufnr)
