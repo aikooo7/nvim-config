@@ -17,6 +17,11 @@ return {
 				[[]],
 				[[]],
 			},
+			footer = function()
+				local stats = require("lazy").stats()
+				local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+				return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+			end,
 		},
 	},
 	config = function(_, opts)
