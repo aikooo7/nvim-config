@@ -19,3 +19,10 @@ vim.keymap.set("n", "<leader>h", vim.cmd.split)
 vim.keymap.set("n", "<Tab>", vim.cmd.bnext)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "<leader>x", vim.cmd.bd)
+
+-- Not use arrow keys
+
+vim.keymap.set("", "<Right>", "<Nop>")
+vim.keymap.set("", "<Left>", "<Nop>")
+vim.keymap.set("", "<Up>", "<Nop>")
+vim.keymap.set("", "<Down>", "<Nop>")
