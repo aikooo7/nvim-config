@@ -146,6 +146,13 @@ return {
 		},
 		config = function()
 			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+
+			local has_words_before = function()
+				unpack = unpack or table.unpack
+				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+			end
 
 			local cmp_config = {
 				sources = {
@@ -164,29 +171,28 @@ return {
 					["<Up>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
 					["<Down>"] = cmp.mapping.select_next_item({ behavior = "select" }),
 
-					-- if completion menu is visible, go to the previous item
-					-- else, trigger completion menu
-					["<S-Tab>"] = cmp.mapping(function()
+					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_prev_item({ behavior = "insert" })
-						else
+							if #cmp.get_entries() == 1 then
+								cmp.confirm({ select = true })
+							else
+								cmp.select_next_item()
+							end
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jumpable()
+						elseif has_words_before() then
 							cmp.complete()
-						end
-					end),
-
-					-- if completion menu is visible, go to the next item
-					-- else, trigger completion menu
-					["<Tab>"] = cmp.mapping(function()
-						if cmp.visible() then
-							cmp.select_next_item({ behavior = "insert" })
+							if #cmp.get_entries() == 1 then
+								cmp.confirm({ select = true })
+							end
 						else
-							cmp.complete()
+							fallback()
 						end
-					end),
+					end, { "i", "s" }),
 				},
 				snippet = {
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 			}
