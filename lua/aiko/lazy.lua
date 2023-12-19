@@ -22,5 +22,6 @@ require("lazy").setup({
 	{ import = "plugins.general" },
 	{ import = "plugins.git" },
 	{ import = "plugins.editor" },
+	{ import = "plugins.ai" },
 	change_detection = { enabled = false },
 })
