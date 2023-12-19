@@ -58,13 +58,13 @@ return {
 				{
 					action = "Lazy",
 					desc = " Lazy",
-					icon = "💤",
+					icon = "󰒲",
 					key = "l",
 				},
 				{
 					action = "Oil",
-					desc = "Open oil",
-					icon = "🛢️",
+					desc = " Open oil",
+					icon = "",
 					key = "o",
 				},
 				{
