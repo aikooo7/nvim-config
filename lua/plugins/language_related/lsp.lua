@@ -150,6 +150,7 @@ return {
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "codeium" },
 				},
 				mapping = {
 					-- confirm selection
