@@ -16,6 +16,9 @@ return {
             disabled_filetypes = { "lua", "javascript", "typescript", "json" },
           }))
         end,
+        deno_fmt = function()
+          null_ls.deregister(null_ls.builtins.formatting.deno_fmt)
+        end,
       },
     })
     local augroup = vim.api.nvim_create_augroup("none-ls", {})
