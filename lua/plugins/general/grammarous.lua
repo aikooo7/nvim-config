@@ -1,4 +1,4 @@
 return {
-	"rhysd/vim-grammarous",
-	cmd = "GrammarousCheck",
+  "rhysd/vim-grammarous",
+  cmd = "GrammarousCheck",
 }

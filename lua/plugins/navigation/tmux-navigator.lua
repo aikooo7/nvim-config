@@ -1,4 +1,4 @@
 return {
-	"christoomey/vim-tmux-navigator",
-	event = "VimEnter",
+  "christoomey/vim-tmux-navigator",
+  event = "VimEnter",
 }

@@ -1,5 +1,5 @@
 return {
-	"NoahTheDuke/vim-just",
-	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-	ft = { "\\cjustfile", "*.just", ".justfile" },
+  "NoahTheDuke/vim-just",
+  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  ft = { "\\cjustfile", "*.just", ".justfile" },
 }
