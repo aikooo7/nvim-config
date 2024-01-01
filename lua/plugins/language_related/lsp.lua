@@ -80,6 +80,11 @@ return {
         opts.capabilities or require("cmp_nvim_lsp").default_capabilities()
       )
 
+      for name, icon in pairs(require("M.constants").icons.diagnostics) do
+        name = "DiagnosticSign" .. name
+        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+      end
+
       -- Main setup call
       local function setup(server)
         local server_opts = vim.tbl_deep_extend("force", {
