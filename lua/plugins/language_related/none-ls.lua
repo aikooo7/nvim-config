@@ -10,7 +10,13 @@ return {
     local null_ls = require("null-ls")
     require("mason").setup()
     require("mason-null-ls").setup({
-      handlers = {},
+      handlers = {
+        prettierd = function()
+          null_ls.register(null_ls.builtins.formatting.prettierd.with({
+            disabled_filetypes = { "lua", "javascript", "typescript", "json" },
+          }))
+        end,
+      },
     })
     local augroup = vim.api.nvim_create_augroup("none-ls", {})
     null_ls.setup({
