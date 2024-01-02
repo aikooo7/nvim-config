@@ -6,4 +6,7 @@ return {
   opts = {
     -- Using default.
   },
+  keys = {
+    { "<leader>tqf", "<cmd>TodoQuickFix<cr>", desc = "Fuzzy find files." },
+  },
 }
