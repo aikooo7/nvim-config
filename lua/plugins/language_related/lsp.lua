@@ -61,13 +61,6 @@ return {
     dependencies = {
       { "folke/neodev.nvim" },
       { "hrsh7th/cmp-nvim-lsp", opts = {} },
-      { "williamboman/mason-lspconfig.nvim" },
-      {
-        "williamboman/mason.nvim",
-        config = function(_, opts)
-          require("mason").setup(opts)
-        end,
-      },
     },
     config = function(_, opts)
       local servers = opts.servers
@@ -95,9 +88,11 @@ return {
       end
 
       local has_mason, mason_lsp = pcall(require, "mason-lspconfig")
-      local mason_servers = {}
+      local final_servers = {}
       if has_mason then
-        mason_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+        final_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+      else
+        final_servers = { "stylua", "prettierd", "typos", "lua-language-server", "rust-analyzer" }
       end
 
       local ensure_installed = {} ---@type string[]
@@ -105,7 +100,7 @@ return {
         if server_opts then
           server_opts = server_opts == true and {} or server_opts
           -- Run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(mason_servers, server) then
+          if server_opts.mason == false or not vim.tbl_contains(final_servers, server) then
             setup(server)
           else
             ensure_installed[#ensure_installed + 1] = server
