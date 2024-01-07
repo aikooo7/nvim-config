@@ -31,6 +31,9 @@ return {
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {
       servers = {
+        nil_ls = {},
+        rust_analyzer = {},
+        tsserver = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -91,8 +94,6 @@ return {
       local final_servers = {}
       if has_mason then
         final_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
-      else
-        final_servers = { "stylua", "prettierd", "typos", "lua-language-server", "rust-analyzer" }
       end
 
       local ensure_installed = {} ---@type string[]
