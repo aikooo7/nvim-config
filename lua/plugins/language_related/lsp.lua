@@ -129,12 +129,30 @@ return {
         -- install jsregexp (optional!).
         build = "make install_jsregexp",
         dependencies = {
-          "rafamadriz/friendly-snippets",
-          config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-            require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snippets/" } })
-          end,
+          {
+            "rafamadriz/friendly-snippets",
+            config = function()
+              require("luasnip.loaders.from_vscode").lazy_load()
+              require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snippets/" } })
+            end,
+          },
+          {
+            "mireq/luasnip-snippets",
+            init = function()
+              require("luasnip_snippets.common.snip_utils").setup()
+            end,
+          },
         },
+        init = function()
+          local ls = require("luasnip")
+          vim.g.snips_author = "aikooo7"
+          vim.g.snips_email = "prozinhopro1973@gmail.com"
+          vim.g.snips_github = "https://github.com/aikooo7"
+          ls.setup({
+            load_ft_func = require("luasnip_snippets.common.snip_utils").load_ft_func,
+            ft_func = require("luasnip_snippets.common.snip_utils").ft_func,
+          })
+        end,
         opts = {
           history = true,
           delete_check_events = "TextChanged",
