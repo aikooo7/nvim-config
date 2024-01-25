@@ -274,9 +274,4 @@ return {
       cmp.setup(cmp_config)
     end,
   },
-
-  -- { "rafamadriz/friendly-snippets" },
-
-  -- Debugging
-  -- { "mfussenegger/nvim-dap" },
 }
