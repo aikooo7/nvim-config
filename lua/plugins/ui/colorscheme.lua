@@ -1,10 +1,9 @@
 return {
-  {
-    "sainnhe/gruvbox-material",
-    lazy = false,
+    'eddyekofo94/gruvbox-flat.nvim',
+    priority = 1000,
+    enabled = true,
     config = function()
-      vim.g.gruvbox_material_better_performance = 1
-      vim.cmd.colorscheme("gruvbox-material")
+      vim.g.gruvbox_flat_style = "dark"
+      vim.cmd([[colorscheme gruvbox-flat]])
     end,
-  },
 }
