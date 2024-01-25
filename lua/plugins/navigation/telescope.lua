@@ -1,9 +1,8 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
-    -- or                              , branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
+    tag = '0.1.5',
     keys = {
       { "<leader>f", "<cmd>Telescope find_files <cr>", desc = "Fuzzy find files." },
       { "<leader>tf", "<cmd>TodoTelescope<cr>", desc = "Find notes like TODO, NOTE, etc..." },
