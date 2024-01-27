@@ -1,4 +1,4 @@
-local opts = {
+vim.g.rustaceanvim = {
   tools = {
     runnables = {
       use_telescope = true,
@@ -19,5 +19,3 @@ local opts = {
     },
   },
 }
-
-require("rust-tools").setup(opts)

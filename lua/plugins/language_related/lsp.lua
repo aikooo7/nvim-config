@@ -270,13 +270,4 @@ return {
       cmp.setup(cmp_config)
     end,
   },
-
-  -- { "rafamadriz/friendly-snippets" },
-
-  -- Rust Support
-  "simrat39/rust-tools.nvim",
-  ft = "rust",
-
-  -- Debugging
-  -- { "mfussenegger/nvim-dap" },
 }
