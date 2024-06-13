@@ -240,7 +240,7 @@ return {
                 cmp.select_next_item()
               end
             elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jumpable()
+              luasnip.expand_or_jump()
             elseif has_words_before() then
               cmp.complete()
               if #cmp.get_entries() == 1 then
