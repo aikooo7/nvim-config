@@ -34,6 +34,9 @@ return {
         nil_ls = {},
         rust_analyzer = {},
         tsserver = {},
+        templ = {
+          filetypes = { "templ" },
+        },
         lua_ls = {
           settings = {
             Lua = {
@@ -134,6 +137,7 @@ return {
             config = function()
               require("luasnip.loaders.from_vscode").lazy_load()
               require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/snippets/" } })
+              require("luasnip").filetype_extend("templ", { "html" })
             end,
           },
           {
