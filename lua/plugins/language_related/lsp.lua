@@ -234,7 +234,7 @@ return {
 
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              if #cmp.get_entries() == 1 then
+              if cmp.get_entries() == 1 then
                 cmp.confirm({ select = true })
               else
                 cmp.select_next_item()
