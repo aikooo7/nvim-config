@@ -30,6 +30,13 @@ vim.opt.colorcolumn = "80"
 
 vim.loader.enable()
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.templ",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
 -- [
 -- Neovim will automatically navigate to the folder of the selected file,
 --  which is helpful when using a fuzzy finder and you want your tree file
